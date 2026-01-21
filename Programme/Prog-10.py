@@ -1,28 +1,11 @@
-import string
+#write a python programme to print duplicates present in list
 
-def word_frequency(text, exclude_words=None):
-    text = text.lower()
+l = ["hello",20,30,40,50,50,30,90]
+n = len(l)
+d = []
 
-    
-    for p in string.punctuation:
-        text = text.replace(p, "")
-
-
-    words = text.split()
-
-    exclude_set = set(word.lower() for word in exclude_words) if exclude_words else set()
-
-    frequency = {}
-
-    for word in words:
-        if word not in exclude_set:
-            frequency[word] = frequency.get(word, 0) + 1
-
-    return frequency
-
-
-input_string = "Apple, apple, orange!! banana, apple orange?"
-exclude = ["orange"]
-
-result = word_frequency(input_string, exclude)
-print(result)
+for i in range(n):
+   for j in range(i+1,n):
+      if l[i]==l[j] and l[i] not in d:
+             d.append(l[i])
+print("Duplicates in the list are:",d)             
